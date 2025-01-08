@@ -20,6 +20,19 @@
 		42A2AA652D2AAC720002F532 /* AlertControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A2AA642D2AAC720002F532 /* AlertControllerBuilder.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		42A2AA6C2D2C52B30002F532 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		42A2AA192D1C728C0002F532 /* RealmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A2AA432D299A830002F532 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +161,7 @@
 				42A2AA152D1C728C0002F532 /* Sources */,
 				42A2AA162D1C728C0002F532 /* Frameworks */,
 				42A2AA172D1C728C0002F532 /* Resources */,
+				42A2AA6C2D2C52B30002F532 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,6 +198,8 @@
 			);
 			mainGroup = 42A2AA102D1C728C0002F532;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 42A2AA1A2D1C728C0002F532 /* Products */;
 			projectDirPath = "";

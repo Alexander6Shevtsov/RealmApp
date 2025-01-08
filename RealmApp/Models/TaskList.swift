@@ -7,7 +7,7 @@
 
 import Foundation
 // Списки
-final class TaskList: Object {
+final class TaskList {
     var title = ""
     var date = Date()
     var tasks: [Task] = []

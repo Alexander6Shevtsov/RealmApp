@@ -13,6 +13,15 @@ final class DataManager {
     private init() {}
     
     func createTempData(completion: @escaping () -> Void) {
+        let shoppingList = TaskList()
+        shoppingList.title = "Shopping List"
         
+        let milk = Task()
+        milk.title = "Milk"
+        milk.note = "2L"
+        
+//        let apples =
+        
+        shoppingList.tasks.append(milk)
     }
 }

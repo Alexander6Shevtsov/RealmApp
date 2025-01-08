@@ -55,7 +55,7 @@ final class TaskListViewController: UITableViewController {
         }
         
         let editAction = UIContextualAction(style: .normal, title: "Edit") { [unowned self] _, _, isDone in
-            showAletr(with: taskList) {
+            showAlert(with: taskList) {
                 tableView.reloadRows(at: [indexPath], with: .automatic)
             }
             isDone(true)
@@ -76,7 +76,7 @@ final class TaskListViewController: UITableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        guard let taskVC = segue.destination as? TaskViewController else { return }
+        guard let taskVC = segue.destination as? TasksViewController else { return }
         let taskList = taskLists[indexPath.row]
         taskVC.taskList = taskList
     }
