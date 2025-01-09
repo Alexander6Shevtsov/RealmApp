@@ -16,12 +16,28 @@ final class DataManager {
         let shoppingList = TaskList()
         shoppingList.title = "Shopping List"
         
-        let milk = Task()
-        milk.title = "Milk"
-        milk.note = "2L"
+        // так не писать!
+        let moviesList = TaskList(
+            value: [
+                "Movies List",
+                    Date(),
+                [
+                    ["Best film ever"],
+                    ["The best of the best", "Must have", Date(), true]
+                ]
+            ]
+        )
         
-//        let apples =
+        let milk = Task() // создание экземпляра
+        milk.title = "Milk" // присваивание значения для 1 свойства
+        milk.note = "2L" // для второго
+        // можно проще с параметром value
+        let apples = Task(value: ["Apples", "2Kg"])
+        // через словарь выборочные параметры
+        let bread = Task(value: ["title" : "Bread", "isComplete" : true])
         
-        shoppingList.tasks.append(milk)
+        shoppingList.tasks.append(milk) // добавляем в коллекцию списка по одному
+        // сразу несколько
+        shoppingList.tasks.insert(contentsOf: [apples, bread], at: 1)
     }
 }
