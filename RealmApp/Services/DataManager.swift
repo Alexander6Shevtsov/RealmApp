@@ -10,6 +10,8 @@ import Foundation
 final class DataManager {
     static let shared = DataManager()
     
+    private let storageManager = StorageManager.shared
+    
     private init() {}
     
     func createTempData(completion: @escaping () -> Void) {
@@ -20,7 +22,7 @@ final class DataManager {
         let moviesList = TaskList(
             value: [
                 "Movies List",
-                    Date(),
+                Date(),
                 [
                     ["Best film ever"],
                     ["The best of the best", "Must have", Date(), true]
@@ -39,5 +41,11 @@ final class DataManager {
         shoppingList.tasks.append(milk) // добавляем в коллекцию списка по одному
         // сразу несколько
         shoppingList.tasks.insert(contentsOf: [apples, bread], at: 1)
+        
+        // чтоб загрузка данных не тормозила интерфейс, выполняем асинхронно
+        DispatchQueue.main.async { [unowned self] in
+            storageManager.save([shoppingList, moviesList]) // сахранение данных
+            completion()
+        }
     }
 }

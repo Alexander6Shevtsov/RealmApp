@@ -11,6 +11,7 @@ final class TaskListViewController: UITableViewController {
     
     private var taskLists: [TaskList]! // массив списков
     private let storageManager = StorageManager.shared // ссылка на SM
+    private let dataManager = DataManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,9 @@ final class TaskListViewController: UITableViewController {
         // размещаем с права в NB
         navigationItem.rightBarButtonItem = addButton
         navigationItem.leftBarButtonItem = editButtonItem // кнопка Done распологаем с лева
-        // обновляем список задач
-        taskLists = storageManager.fetchTaskList()
+        
+        createTempData()
+        taskLists = storageManager.fetchTaskList() // обновляем список задач
     }
     
     // MARK: - UITableViewDataSource
@@ -87,6 +89,15 @@ final class TaskListViewController: UITableViewController {
     
     @objc private func addButtonPressed() {
         showAlert() // без параметров -> режим добавления
+    }
+    
+    private func createTempData() { // проверяем на наличие данных
+        if !UserDefaults.standard.bool(forKey: "done") {
+            dataManager.createTempData { [unowned self] in
+                UserDefaults.standard.setValue(true, forKey: "done")
+                tableView.reloadData() // перезапускаем методы
+            }
+        }
     }
 }
 
